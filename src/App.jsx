@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 function App() {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             <Body />
             <Footer />
         </div>

@@ -10,7 +10,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            {/* <div className="logo">Bull CFD</div> */}
+            <div className="logo">Bull CFD</div>
            
             <nav className={`navigation${menuOpen ? ' open' : ''}`}>
                 <ul>
