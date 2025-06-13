@@ -639,7 +639,7 @@ const Body = () => {
           className="cta-button animated-section"
           style={{ animationDelay: '0.4s' }}
         >
-          Start Trading Now
+          SignUp Now
         </a>
       </div>
 
