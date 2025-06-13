@@ -347,10 +347,10 @@ const styles = `
 }
 
 .benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem; /* space between items */
 }
 
 .benefit-item {
@@ -451,6 +451,15 @@ const styles = `
   font-size: 1rem;
 }
 
+.animate-pointer {
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-10px);}
+}
+
 @media (max-width: 768px) {
   .main-title {
     font-size: 2.5rem;
@@ -472,7 +481,7 @@ const styles = `
   
   .section-title {
     font-size: 2rem;
-    text
+    text-align: center;
   }
 }
 `;
@@ -544,15 +553,6 @@ const Body = () => {
     }
   ];
 
-  const keyBenefitsData = [
-    "A Reliable Trading Platform",
-    "Low Brokerage",
-    "Up to 50X Leverage*",
-    "Access to NSE, MCX, Forex, Global, Crypto Markets",
-    "Instant Deposits & Withdrawals",
-    "Realtime Customer Support"
-  ];
-
   const testimonialsData = [
     {
       quote: "I started with zero experience and now trade global markets weekly. Bull CFD made it incredibly easy and profitable.",
@@ -578,43 +578,65 @@ const Body = () => {
       <style>{styles}</style>
       
       {/* Hero Section */}
-      <div className="hero-bg animated-section" style={{ animationDelay: '0.1s' }}>
+      <div
+        className="hero-bg animated-section"
+        style={{
+          animationDelay: '0.1s',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '40vh', // reduced height for a smaller hero section
+          textAlign: 'center',
+        }}
+      >
         <div className="logo-container">
-          <div style={{
-            width: '80px',
-            height: '80px',
-            // background: 'white',
-            // borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '2rem',
-            fontWeight: 'bold',
-            color: '#EF6836'
-          }}>
-                    <img
-          src={logo}
-          alt="Bull CFD Logo"
-          style={{
-            width: '150px',
-            marginBottom: '20px',
-            display: 'block',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-        />
+          <div
+            style={{
+              width: '80px',
+              height: '80px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '2rem',
+              fontWeight: 'bold',
+              color: '#EF6836',
+              margin: '0 auto',
+            }}
+          >
+            <img
+              src={logo}
+              alt="Bull CFD Logo"
+              style={{
+                width: '150px',
+                marginBottom: '20px',
+                display: 'block',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            />
           </div>
         </div>
-        
-        <h1 className="main-title animated-section" style={{ animationDelay: '0.2s' }}>
+
+        <h1
+          className="main-title animated-section"
+          style={{ animationDelay: '0.2s', margin: '20px 0 10px 0' }}
+        >
           Start with Just ₹1,000
         </h1>
-        
-        <p className="main-subtitle animated-section" style={{ animationDelay: '0.3s' }}>
+
+        <p
+          className="main-subtitle animated-section"
+          style={{ animationDelay: '0.3s', margin: '0 0 20px 0' }}
+        >
           NSE, MCX, Crypto, Forex, and Global markets - all in one powerful platform designed for modern traders
         </p>
-        
-        <a href="https://crm.bullcfd.com/front_form/" className="cta-button animated-section" style={{ animationDelay: '0.4s' }}>
+
+        <a
+          href="https://crm.bullcfd.com/front_form/"
+          className="cta-button animated-section"
+          style={{ animationDelay: '0.4s' }}
+        >
           Start Trading Now
         </a>
       </div>
@@ -625,7 +647,7 @@ const Body = () => {
         textAlign: 'center',
         animationDelay: '0.5s'
       }}>
-        <h2 className="section-title">Your Professional Firm to Get Additional Income</h2>
+        <h2 className="section-title">No KYC Needed. Real Tools for Real Markets.</h2>
         
         <div className="analytics-section">
           {analyticsData.map((item, idx) => (
@@ -686,39 +708,119 @@ const Body = () => {
         }}>
           <div className="step-card animated-section-left" style={{ animationDelay: '1.4s' }}>
             <div className="step-number">1</div>
-            <h4 style={{ color: '#EF6836', marginBottom: '15px' }}>Register</h4>
+            <h4 style={{ color: '#EF6836', marginBottom: '15px' }}>Create Your Account</h4>
             <p style={{ color: '#aaa' }}>Create your free account in just minutes with our streamlined registration process.</p>
           </div>
           
           <div className="step-card animated-section" style={{ animationDelay: '1.5s' }}>
             <div className="step-number">2</div>
-            <h4 style={{ color: '#DC261B', marginBottom: '15px' }}>Fund</h4>
+            <h4 style={{ color: '#DC261B', marginBottom: '15px' }}>Make Your First Deposit</h4>
             <p style={{ color: '#aaa' }}>Deposit securely using multiple payment options with instant processing.</p>
           </div>
           
           <div className="step-card animated-section-right" style={{ animationDelay: '1.6s' }}>
             <div className="step-number">3</div>
-            <h4 style={{ color: '#A9A9A9', marginBottom: '15px' }}>Trade</h4>
+            <h4 style={{ color: '#A9A9A9', marginBottom: '15px' }}>Start Trading</h4>
             <p style={{ color: '#aaa' }}>Access global markets and start trading with professional-grade tools.</p>
           </div>
         </div>
       </div>
 
       {/* Key Benefits */}
-      <div className="animated-section" style={{ 
-        marginTop: '120px',
-        textAlign: 'center',
-        animationDelay: '1.7s'
-      }}>
+      <div
+        className="animated-section"
+        style={{
+          marginTop: '120px',
+          textAlign: 'center',
+          animationDelay: '1.7s',
+        }}
+      >
         <h2 className="section-title">Key Benefits of Bull CFD</h2>
-        
+
         <div className="benefits-grid">
-          {keyBenefitsData.map((benefit, idx) => (
-            <div className="benefit-item" key={idx} style={{ animationDelay: `${1.8 + idx * 0.1}s` }}>
-              <div className="benefit-icon">✓</div>
-              <span style={{ color: '#ccc', fontSize: '1.1rem' }}>{benefit}</span>
-            </div>
-          ))}
+          <div
+            className="benefit-item animate-pointer"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '1.8s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              A Futuristic Trading Platform
+            </span>
+          </div>
+          
+          <div
+            className="benefit-item"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '1.9s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              Low Brokerage
+            </span>
+          </div>
+          
+          <div
+            className="benefit-item"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '2.0s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              Up to 50X Leverage*
+            </span>
+          </div>
+          
+          <div
+            className="benefit-item"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '2.1s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              Access to NSE, MCX, Forex, Global, Crypto Markets
+            </span>
+          </div>
+          
+          <div
+            className="benefit-item"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '2.2s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              Instant Deposits & Withdrawals
+            </span>
+          </div>
+          
+          <div
+            className="benefit-item"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '2.3s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              Realtime Customer Support
+            </span>
+          </div>
         </div>
       </div>
 
@@ -728,40 +830,38 @@ const Body = () => {
         textAlign: 'center',
         animationDelay: '2.4s'
       }}>
-        <h2 className="section-title">Choose Your Plan</h2>
+        <h2 className="section-title"> 
+ 	
+Why is BullCFD different?</h2>
         
         <div className="pricing-grid">
-          <div className="pricing-card" style={{ animationDelay: '2.5s' }}>
-            <h3 style={{ color: '#A9A9A9', marginBottom: '20px' }}>Basic</h3>
-            <div style={{ fontSize: '3rem', fontWeight: '700', color: '#EF6836', marginBottom: '20px' }}>$0</div>
+          <div className="pricing-card" style={{ animationDelay: '2.5s',marginTop: '40px' }}>
+            <h3 style={{ color: '#A9A9A9', marginBottom: '20px' }}>Zero Taxes </h3>
+        
             <ul style={{ listStyle: 'none', padding: 0, color: '#aaa' }}>
-              <li style={{ marginBottom: '10px' }}>✓ All essential features</li>
-              <li style={{ marginBottom: '10px' }}>✓ Standard support</li>
-              <li>✓ Access to all markets</li>
+              <li style={{ marginBottom: '10px' }}>✓ Keep 100% of what you earn </li>
+              <li style={{ marginBottom: '10px' }}>✓ with no tax deductions on your trades.</li>
+             
             </ul>
           </div>
           
-          <div className="pricing-card featured" style={{ animationDelay: '2.6s' }}>
-            <h3 style={{ color: 'white', marginBottom: '20px' }}>Pro</h3>
-            <div style={{ fontSize: '3rem', fontWeight: '700', color: 'white', marginBottom: '20px' }}>
-              $29<span style={{ fontSize: '1rem' }}>/mo</span>
-            </div>
+          <div className="pricing-card featured" style={{ animationDelay: '2.6s',marginTop: '40px' }}>
+            <h3 style={{ color: 'white', marginBottom: '20px' }}>No KYC Needed</h3>
+           
             <ul style={{ listStyle: 'none', padding: 0, color: '#eee' }}>
-              <li style={{ marginBottom: '10px' }}>✓ Lower spreads</li>
-              <li style={{ marginBottom: '10px' }}>✓ Priority support</li>
-              <li>✓ Advanced analytics</li>
+              <li style={{ marginBottom: '10px' }}>✓ Skip the long forms  </li>
+              <li style={{ marginBottom: '10px' }}>✓ start trading in minutes</li>
+             
             </ul>
           </div>
           
-          <div className="pricing-card" style={{ animationDelay: '2.7s' }}>
-            <h3 style={{ color: '#DC261B', marginBottom: '20px' }}>VIP</h3>
-            <div style={{ fontSize: '3rem', fontWeight: '700', color: '#DC261B', marginBottom: '20px' }}>
-              $99<span style={{ fontSize: '1rem' }}>/mo</span>
-            </div>
+          <div className="pricing-card" style={{ animationDelay: '2.7s' ,marginTop: '40px' }}>
+            <h3 style={{ color: '#DC261B', marginBottom: '20px' }}>Start with ₹ 1000 </h3>
+           
             <ul style={{ listStyle: 'none', padding: 0, color: '#aaa' }}>
-              <li style={{ marginBottom: '10px' }}>✓ Dedicated account manager</li>
-              <li style={{ marginBottom: '10px' }}>✓ Exclusive resources</li>
-              <li>✓ Highest priority support</li>
+              <li style={{ marginBottom: '10px' }}>✓  Begin your trading journey with just ₹1,000.</li>
+              <li style={{ marginBottom: '10px' }}>✓ No big capital needed to get started</li>
+            
             </ul>
           </div>
         </div>
