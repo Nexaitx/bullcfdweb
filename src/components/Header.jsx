@@ -10,24 +10,16 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className="logo">Bull CFD</div>
-            <button
-                className="menu-toggle"
-                onClick={handleMenuToggle}
-                aria-label="Toggle navigation"
-            >
-                <span className="bar"></span>
-                <span className="bar"></span>
-                <span className="bar"></span>
-            </button>
+            {/* <div className="logo">Bull CFD</div> */}
+           
             <nav className={`navigation${menuOpen ? ' open' : ''}`}>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/platforms">Platforms</a></li>
-                    <li><a href="/education">Education</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="https://bullcfd.com/index.php/about-us">About</a></li>
+                    {/* <li><a href="/services">Services</a></li> */}
+                    <li><a href="https://bullcfd.com/index.php/app-download">Platforms</a></li>
+                    <li><a href="https://bullcfd.com/tutorial">Education</a></li>
+                    <li><a href="https://bullcfd.com/contact-us">Contact</a></li>
                     <li>
                         <a
                             href="https://crm.bullcfd.com/front_form/"
@@ -46,11 +38,11 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
-            <div className="header-info">
+            {/* <div className="header-info">
                 <span>Trade Forex, Commodities, Indices &amp; Shares</span>
                 <span>Ultra-fast Execution</span>
                 <span>24/5 Support</span>
-            </div>
+            </div> */}
         </header>
     );
 };
