@@ -350,14 +350,16 @@ const styles = `
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.2rem; /* space between items */
+  gap: 0.3rem; /* Reduce this value to decrease space between items */
+  /* Or remove gap entirely for no extra space: */
+  /* gap: 0; */
 }
 
 .benefit-item {
  
   backdrop-filter: blur(20px);
  
-  padding: 25px;
+  padding: 10px;
   
   display: flex;
   align-items: center;
@@ -633,7 +635,7 @@ const Body = () => {
         </p>
 
         <a
-          href="https://crm.bullcfd.com/front_form/"
+          href="https://crm.bullcfd.com/front_form/?referral=420040&tracking_id=109"
           className="cta-button animated-section"
           style={{ animationDelay: '0.4s' }}
         >
@@ -727,7 +729,7 @@ const Body = () => {
       </div>
 
       {/* Key Benefits */}
-      <div
+     <div
         className="animated-section"
         style={{
           marginTop: '120px',
@@ -738,7 +740,21 @@ const Body = () => {
         <h2 className="section-title">Key Benefits of Bull CFD</h2>
 
         <div className="benefits-grid">
-           <div
+          <div
+            className="benefit-item animate-pointer"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '1.8s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              A Futuristic Trading Platform
+            </span>
+          </div>
+          
+          <div
             className="benefit-item"
             style={{
               animation: 'fadeInUp 0.6s ease',
@@ -766,49 +782,6 @@ const Body = () => {
             </span>
           </div>
 
-           <div
-            className="benefit-item"
-            style={{
-              animation: 'fadeInUp 0.6s ease',
-              animationDelay: '2.3s',
-              animationFillMode: 'both',
-            }}
-          >
-            <div className="benefit-icon">✓</div>
-            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
-              Realtime Customer Support
-            </span>
-          </div>
-          <div
-            className="benefit-item animate-pointer"
-            style={{
-              animation: 'fadeInUp 0.6s ease',
-              animationDelay: '1.8s',
-              animationFillMode: 'both',
-            }}
-          >
-            <div className="benefit-icon">✓</div>
-            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
-              A Futuristic Trading Platform
-            </span>
-          </div>
-          
-         
-            <div
-            className="benefit-item"
-            style={{
-              animation: 'fadeInUp 0.6s ease',
-              animationDelay: '2.2s',
-              animationFillMode: 'both',
-            }}
-          >
-            <div className="benefit-icon">✓</div>
-            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
-              Instant Deposits & Withdrawals
-            </span>
-          </div>
-          
-          
           <div
             className="benefit-item"
             style={{
@@ -823,9 +796,33 @@ const Body = () => {
             </span>
           </div>
           
-        
+          <div
+            className="benefit-item"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '2.2s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              Instant Deposits & Withdrawals
+            </span>
+          </div>
           
-         
+          <div
+            className="benefit-item"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '2.3s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              Realtime Customer Support
+            </span>
+          </div>
         </div>
       </div>
 
@@ -913,7 +910,7 @@ Why is BullCFD different?</h2>
           Join thousands of successful traders worldwide who trust Bull CFD for their financial growth.
         </p>
         
-        <a href="https://crm.bullcfd.com/front_form/" className="cta-button">
+        <a href="https://crm.bullcfd.com/front_form/?referral=420040&tracking_id=109" className="cta-button">
           Create Your Free Account
         </a>
       </div>
