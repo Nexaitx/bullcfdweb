@@ -354,11 +354,11 @@ const styles = `
 }
 
 .benefit-item {
-  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+ 
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.1);
+ 
   padding: 25px;
-  border-radius: 16px;
+  
   display: flex;
   align-items: center;
   gap: 15px;
@@ -738,6 +738,47 @@ const Body = () => {
         <h2 className="section-title">Key Benefits of Bull CFD</h2>
 
         <div className="benefits-grid">
+           <div
+            className="benefit-item"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '1.9s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              Low Brokerage
+            </span>
+          </div>
+
+          <div
+            className="benefit-item"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '2.0s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              Up to 50X Leverage*
+            </span>
+          </div>
+
+           <div
+            className="benefit-item"
+            style={{
+              animation: 'fadeInUp 0.6s ease',
+              animationDelay: '2.3s',
+              animationFillMode: 'both',
+            }}
+          >
+            <div className="benefit-icon">✓</div>
+            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
+              Realtime Customer Support
+            </span>
+          </div>
           <div
             className="benefit-item animate-pointer"
             style={{
@@ -752,33 +793,21 @@ const Body = () => {
             </span>
           </div>
           
-          <div
+         
+            <div
             className="benefit-item"
             style={{
               animation: 'fadeInUp 0.6s ease',
-              animationDelay: '1.9s',
+              animationDelay: '2.2s',
               animationFillMode: 'both',
             }}
           >
             <div className="benefit-icon">✓</div>
             <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
-              Low Brokerage
+              Instant Deposits & Withdrawals
             </span>
           </div>
           
-          <div
-            className="benefit-item"
-            style={{
-              animation: 'fadeInUp 0.6s ease',
-              animationDelay: '2.0s',
-              animationFillMode: 'both',
-            }}
-          >
-            <div className="benefit-icon">✓</div>
-            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
-              Up to 50X Leverage*
-            </span>
-          </div>
           
           <div
             className="benefit-item"
@@ -794,33 +823,9 @@ const Body = () => {
             </span>
           </div>
           
-          <div
-            className="benefit-item"
-            style={{
-              animation: 'fadeInUp 0.6s ease',
-              animationDelay: '2.2s',
-              animationFillMode: 'both',
-            }}
-          >
-            <div className="benefit-icon">✓</div>
-            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
-              Instant Deposits & Withdrawals
-            </span>
-          </div>
+        
           
-          <div
-            className="benefit-item"
-            style={{
-              animation: 'fadeInUp 0.6s ease',
-              animationDelay: '2.3s',
-              animationFillMode: 'both',
-            }}
-          >
-            <div className="benefit-icon">✓</div>
-            <span style={{ color: '#ccc', fontSize: '1.1rem' }}>
-              Realtime Customer Support
-            </span>
-          </div>
+         
         </div>
       </div>
 
