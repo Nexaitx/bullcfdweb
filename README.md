@@ -1,57 +1,12 @@
-# Beauty UI App
+# React + Vite
 
-This is a ReactJS project that provides a beautiful single-page application inspired by the design of Bull CFD. The application features a header, body, and footer layout, along with a prominent signup link.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Project Structure
+Currently, two official plugins are available:
 
-```
-beauty-ui-app
-├── public
-│   └── index.html          # Main HTML file
-├── src
-│   ├── components
-│   │   ├── Header.jsx      # Header component
-│   │   ├── Body.jsx        # Body component
-│   │   └── Footer.jsx      # Footer component
-│   ├── App.jsx             # Main application component
-│   └── index.js            # Entry point for the React application
-├── package.json             # NPM configuration file
-└── README.md                # Project documentation
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Setup Instructions
+## Expanding the ESLint configuration
 
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd beauty-ui-app
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Run the application:**
-   ```bash
-   npm start
-   ```
-
-4. **Open your browser:**
-   Navigate to `http://localhost:3000` to view the application.
-
-## Usage
-
-The application consists of three main components:
-
-- **Header:** Contains navigation links and branding.
-- **Body:** Displays the main content and includes a signup link that redirects to the signup page.
-- **Footer:** Provides copyright information and additional links.
-
-## Contributing
-
-Feel free to submit issues or pull requests for improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

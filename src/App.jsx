@@ -1,16 +1,15 @@
-import React from 'react';
-import Header from './components/Header';
-import Body from './components/Body';
-import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import Home from './MainApp';
+import ThankYouPage from './ThankYouPage'; // <-- Correct import
+
 
 function App() {
-    return (
-        <div>
-            {/* <Header /> */}
-            <Body />
-            <Footer />
-        </div>
-    );
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/thank-you" element={<ThankYouPage />} /> 
+    </Routes>
+  );
 }
 
 export default App;
