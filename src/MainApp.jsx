@@ -301,7 +301,7 @@ const MainApp = () => {
             <div>
               <input
                 type="tel"
-                placeholder="+91"
+                placeholder="Enter You Phone Number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 style={inputStyle}
