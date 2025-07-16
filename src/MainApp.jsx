@@ -14,31 +14,32 @@ const MainApp = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    navigate('/thank-you'); 
-    // if (!terms) {
-    //   setMessage('Please agree to Terms & Conditions!');
-    //   navigate('/thank-you'); // Navigate to Home page
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    //   // return;
-    // }
+  if (!terms) {
+    setMessage('Please agree to Terms & Conditions!');
+    return;
+  }
 
-    // try {
-    //   const response = await fetch('http://localhost:5000/api/register', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ fullName, phone, email }),
-    //   });
-    //   if (response.ok) {
-    //     // navigate('/thank-you'); // Navigate to Thank You page
-    //   } else {
-    //     setMessage('Registration failed. Please try again.');
-    //   }
-    // } catch (error) {
-    //   setMessage('Something went wrong. Please try again.');
-    // }
-  };
+  try {
+    const response = await fetch('https://bullcfdbackend.onrender.com/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fullName, phone, email }),
+    });
+
+    if (response.ok) {
+      navigate('/thank-you'); // ✅ Navigate only AFTER successful response
+    } else {
+      setMessage('Registration failed. Please try again.');
+    }
+  } catch (error) {
+    setMessage('Something went wrong. Please try again.');
+    console.error(error);
+  }
+};
+
 
   const handleWhatsAppClick = () => {
     const phoneNumber = '9646815313';
