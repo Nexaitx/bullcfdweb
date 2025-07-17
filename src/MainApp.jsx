@@ -18,11 +18,11 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
     )}
 </select>
 );
-// const phoneRegex = /^\+[1-9]\d{0,2}\d{10}$/;
+const phoneRegex = /^\+[1-9]\d{0,2}\d{10}$/;
  
-// function isValidPhone(phone) {
-//   return phoneRegex.test(phone);
-// }
+function isValidPhone(phone) {
+  return phoneRegex.test(phone);
+}
 
 const MainApp = () => {
   console.log('MainApp mounted');
@@ -331,6 +331,7 @@ return (
               />
             </div>
               {/* <CountrySelect country={country} setCountry={setCountry} /> */}
+              <div>
 <div style={{
   display: 'flex',
   alignItems: 'center',
@@ -354,6 +355,13 @@ return (
       backgroundColor: 'transparent'
     }}
   />
+ 
+</div>
+ {phone && !isValidPhone(phone) && (
+<p style={{ color: 'red' }}>
+    Enter country code + and 10‑digit number (e.g. +911234567890)
+</p>
+)}
 </div>
 
             <div>
