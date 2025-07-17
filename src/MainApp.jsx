@@ -1,16 +1,38 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import  { getCountries, getCountryCallingCode } from 'react-phone-number-input/input';
+import ReactCountryFlag from 'react-country-flag';
+import PhoneInput from 'react-phone-number-input'
 
+import 'react-phone-number-input/style.css';
 import logo1 from './assets/logo1.png';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+/******************/
+ const CountrySelect = ({ country, setCountry }) => (
+<select value={country} onChange={e => setCountry(e.target.value)}>
+    {getCountries().map(c =>
+<option key={c} value={c}>
+<ReactCountryFlag countryCode={c} svg style={{fontSize: '1.5em'}} />
+        {' +'}{getCountryCallingCode(c)}
+</option>
+    )}
+</select>
+);
+// const phoneRegex = /^\+[1-9]\d{0,2}\d{10}$/;
+ 
+// function isValidPhone(phone) {
+//   return phoneRegex.test(phone);
+// }
 
 const MainApp = () => {
   console.log('MainApp mounted');
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [city,setCity]=useState('');
   const [terms, setTerms] = useState(false);
   const [message, setMessage] = useState('');
+  const [country, setCountry] = useState('IN'); // Default to India, or choose as needed
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -25,7 +47,7 @@ const MainApp = () => {
       const response = await fetch('https://bullcfdbackend.onrender.com/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fullName, phone, email }),
+        body: JSON.stringify({ fullName, phone, email,city }),
       });
 
       if (response.ok) {
@@ -134,6 +156,15 @@ const MainApp = () => {
     boxSizing: 'border-box'
   };
 
+  const phoneinputStyle={
+      width: '100%',
+    padding: '12px',
+    margin: '10px 0',
+    border: 'none',
+    borderRadius: '5px',
+    fontSize: '16px',
+    boxSizing: 'border-box'
+};
   const buttonStyle = {
     width: '100%',
     padding: '12px',
@@ -252,7 +283,8 @@ const MainApp = () => {
     }
   `;
 
-  return (
+
+return (
     <>
       <style>{mobileStyles}</style>
       <div className="container" style={containerStyle}>
@@ -298,22 +330,48 @@ const MainApp = () => {
                 required
               />
             </div>
-            <div>
-              <input
-                type="tel"
-                placeholder="Enter You Phone Number"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                style={inputStyle}
-                required
-              />
-            </div>
+              {/* <CountrySelect country={country} setCountry={setCountry} /> */}
+<div style={{
+  display: 'flex',
+  alignItems: 'center',
+  border: 'none',
+  borderRadius: '5px',
+  padding: '10px',
+  backgroundColor: '#fff',
+  margin: '10px 0'
+}}>
+  <PhoneInput
+    international
+    defaultCountry="IN"
+    countryCallingCodeEditable={false}
+    value={phone}
+    onChange={setPhone}
+    style={{
+      flex: 1,
+      border: 'none',
+      fontSize: '16px',
+      outline: 'none',
+      backgroundColor: 'transparent'
+    }}
+  />
+</div>
+
             <div>
               <input
                 type="email"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                style={inputStyle}
+                required
+              />
+              </div>
+              <div>
+              <input
+                type="city"
+                placeholder="city"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
                 style={inputStyle}
                 required
               />
