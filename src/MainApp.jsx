@@ -32,35 +32,95 @@ const MainApp = () => {
   const [city,setCity]=useState('');
   const [terms, setTerms] = useState(false);
   const [message, setMessage] = useState('');
-  const [country, setCountry] = useState('IN'); // Default to India, or choose as needed
+  // const [country, setCountry] = useState('IN'); // Default to India, or choose as needed
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    if (!terms) {
-      setMessage('Please agree to Terms & Conditions!');
-      return;
-    }
+  //   if (!terms) {
+  //     setMessage('Please agree to Terms & Conditions!');
+  //     return;
+  //   }
 
-    try {
-      const response = await fetch('https://bullcfdbackend.onrender.com/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fullName, phone, email,city }),
+  //   try {
+  //     const response = await fetch('https://bullcfdbackend.onrender.com/api/register', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({ fullName, phone, email,city }),
+  //     });
+
+  //     if (response.ok) {
+  //       navigate('/thank-you');
+  //     } else {
+  //       setMessage('Registration failed. Please try again.');
+  //     }
+  //   } catch (error) {
+  //     setMessage('Something went wrong. Please try again.');
+  //     console.error(error);
+  //   }
+  // };
+/******************new handle submit*** */
+
+const handleSubmit = async (e) => {
+
+  e.preventDefault();
+ 
+  if (!terms) {
+
+    setMessage('Please agree to Terms & Conditions!');
+
+    return;
+
+  }
+ 
+  try {
+
+    const response = await fetch('https://bullcfdbackend.onrender.com/api/register', {
+
+      method: 'POST',
+
+      headers: { 'Content-Type': 'application/json' },
+
+      body: JSON.stringify({ fullName, phone, email,city }),
+
+    });
+ 
+    if (response.ok) {
+
+      window.dataLayer.push({
+
+        event: 'Lead',
+
+        fullName,
+
+        phone,
+
+        email,
+        city,
+
       });
 
-      if (response.ok) {
-        navigate('/thank-you');
-      } else {
-        setMessage('Registration failed. Please try again.');
-      }
-    } catch (error) {
-      setMessage('Something went wrong. Please try again.');
-      console.error(error);
-    }
-  };
+      navigate('/thank-you');
 
+    } else {
+
+      setMessage('Registration failed. Please try again.');
+
+    }
+
+  } catch (error) {
+
+    setMessage('Something went wrong. Please try again.');
+
+    console.error(error);
+
+  }
+
+};
+ 
+
+/**** */
   const handleWhatsAppClick = () => {
     const phoneNumber = '9646815313';
     const messageText = 'Hi Bull CFD! I want trading id.';
