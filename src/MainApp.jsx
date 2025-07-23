@@ -30,7 +30,7 @@ const MainApp = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [city,setCity]=useState('');
-  const [terms, setTerms] = useState(false);
+  const [terms, setTerms] = useState(true);
   const [message, setMessage] = useState('');
   // const [country, setCountry] = useState('IN'); // Default to India, or choose as needed
   const navigate = useNavigate();
@@ -97,6 +97,7 @@ const handleSubmit = async (e) => {
         phone,
 
         email,
+        
         city,
 
       });
@@ -445,14 +446,21 @@ return (
               />
             </div>
             <div style={{ margin: '15px 0' }}>
-              <label style={{ color: 'white', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <input
-                  type="checkbox"
-                  checked={terms}
-                  onChange={(e) => setTerms(e.target.checked)}
-                />
-                I agree to Terms & Conditions
-              </label>
+             <label style={{ color: 'white', margin: '10px 0' }}>
+  <input
+    type="checkbox"
+    checked={terms}
+    onChange={(e) => setTerms(e.target.checked)}
+  />
+  <a
+    href="https://bullcfd.com/index.php/privacy-policy"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ color: 'white', textDecoration: 'underline' }}
+  >
+    I agree to Terms & Conditions
+  </a>
+</label>
             </div>
             <div style={{ textAlign: 'center', margin: '20px 0' }}>
               <button 
@@ -463,9 +471,7 @@ return (
                 Sign Up
               </button>
             </div>
-            <p style={{ color: '#1e3a8a', textAlign: 'center', marginTop: '10px' }}>
-              Have an account?
-            </p>
+           
             {message && (
               <p style={{ 
                 color: 'red', 
