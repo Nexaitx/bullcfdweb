@@ -447,19 +447,19 @@ return (
             </div>
             <div style={{ margin: '15px 0' }}>
              <label style={{ color: 'white', margin: '10px 0' }}>
-  <input
-    type="checkbox"
-    checked={terms}
-    onChange={(e) => setTerms(e.target.checked)}
-  />
-  <a
-    href="https://bullcfd.com/index.php/privacy-policy"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{ color: 'white', textDecoration: 'underline' }}
-  >
-    I agree to Terms & Conditions
-  </a>
+<input
+          type="checkbox"
+          checked={terms}
+          onChange={(e) => setTerms(e.target.checked)}
+        />
+        {' '}I agree to <a
+          href="https://bullcfd.com/index.php/privacy-policy"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: '#00f', textDecoration: 'underline' }}
+>
+          Terms & Conditions
+</a>
 </label>
             </div>
             <div style={{ textAlign: 'center', margin: '20px 0' }}>
